@@ -1,0 +1,12 @@
+{
+  "name": "ha-js-core",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^7.1.0",
+    "@angular/core": "^7.1.0"
+  },
+  "dependencies": {
+    "@angular/fire": "^5.1.1",
+    "firebase": "^5.6.0"
+  }
+}

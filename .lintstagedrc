@@ -1,0 +1,24 @@
+{
+  "*.ts": [
+    "tslint --fix",
+    "prettier --write",
+    "git add"
+  ],
+  "*.scss": [
+    "stylelint --fix",
+    "prettier --write",
+    "git add"
+  ],
+  "*.{jpg,jpeg}": [
+    "jpegoptim --strip-all --all-progressive -pm85",
+    "git add"
+  ],
+  "*.png": [
+    "optipng -strip all -o4",
+    "git add"
+  ],
+  "*.svg": [
+    "svgo",
+    "git add"
+  ]
+}

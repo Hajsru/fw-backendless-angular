@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ha-js-core": [
+        "dist/ha-js-core"
+      ],
+      "ha-js-core/*": [
+        "dist/ha-js-core/*"
+      ]
+    }
   }
 }
