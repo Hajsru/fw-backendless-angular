@@ -16,14 +16,6 @@
             "project": "projects/ha-js-core/ng-package.json"
           }
         },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ha-js-core/src/test.ts",
-            "tsConfig": "projects/ha-js-core/tsconfig.spec.json",
-            "karmaConfig": "projects/ha-js-core/karma.conf.js"
-          }
-        },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
@@ -104,23 +96,6 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "ha-js-app:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/ha-js-app/src/test.ts",
-            "polyfills": "projects/ha-js-app/src/polyfills.ts",
-            "tsConfig": "projects/ha-js-app/tsconfig.spec.json",
-            "karmaConfig": "projects/ha-js-app/karma.conf.js",
-            "styles": [
-              "projects/ha-js-app/src/styles.css"
-            ],
-            "scripts": [],
-            "assets": [
-              "projects/ha-js-app/src/favicon.ico",
-              "projects/ha-js-app/src/assets"
-            ]
           }
         },
         "lint": {
