@@ -19,11 +19,8 @@
       "dom"
     ],
     "paths": {
-      "ha-js-core": [
+      "@it-quasar/ha-js-core": [
         "dist/ha-js-core"
-      ],
-      "ha-js-core/*": [
-        "dist/ha-js-core/*"
       ]
     }
   }

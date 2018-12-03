@@ -1,0 +1,13 @@
+<h1 class="section__title">Митапы</h1>
+
+<ul class="section__grid items">
+  <li *ngFor="let event of events$|async" class="item">
+    <app-item
+      [number]="event.number"
+      [title]="event.title"
+      [description]="event.location"
+      [rating]="event.rating"
+    ></app-item>
+  </li>
+</ul>
+

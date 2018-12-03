@@ -1,0 +1,29 @@
+<aside>
+  <header>
+    <a [routerLink]="['/']" class="logo-block">
+      <picture class="logo-picture">
+        <source srcset="../../assets/logo-small.png" media="(max-width: 767px)">
+        <source srcset="../../assets/logo-big.png" media="(min-width: 768px)">
+        <img srcset="../../assets/logo.png" class="logo" alt="Ha.js">
+      </picture>
+    </a>
+  </header>
+
+  <nav class="app-nav">
+    <ul class="app-nav__list">
+      <li class="app-nav__list-item">
+        <a [routerLink]="['/events']" class="app-nav__link">Митапы</a>
+      </li>
+      <li class="app-nav__list-item">
+        <a [routerLink]="['/speakers']" class="app-nav__link">Спикеры</a>
+      </li>
+      <li class="app-nav__list-item">
+        <a [routerLink]="['/reports']" class="app-nav__link">Доклады</a>
+      </li>
+      <li class="app-nav__list-item">
+        <a [routerLink]="['/registration']" class="app-nav__link">Регистрация на митап</a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
