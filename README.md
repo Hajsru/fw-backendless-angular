@@ -46,4 +46,5 @@
 ## Адреса
 
 - Приложение Ha.js: https://ha-js-7b0a9.firebaseapp.com/
-- Админ-панель: https://ha-js-7b0a9.firebaseapp.com/admin/
+- Админ-панель: https://ha-js-7b0a9.firebaseapp.com/admin/ 
+(открывать нужно во владке Инкогнито, иначе SW не даст перейти)
