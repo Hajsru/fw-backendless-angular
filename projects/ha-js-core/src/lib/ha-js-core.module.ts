@@ -5,7 +5,10 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [],
-  imports: [AngularFirestoreModule.enablePersistence(), AngularFireStorageModule],
+  imports: [
+    AngularFirestoreModule.enablePersistence({ experimentalTabSynchronization: true }),
+    AngularFireStorageModule,
+  ],
   exports: [],
 })
 export class HaJsCoreModule {
