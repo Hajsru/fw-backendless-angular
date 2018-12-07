@@ -9,6 +9,7 @@ import { ItemComponent } from './item/item.component';
 import { EventsPageComponent } from './events-page/events-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SpeakersPageComponent } from './speakers-page/speakers-page.component';
+import { ReportsPageComponent } from './reports-page/reports-page.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SpeakersPageComponent } from './speakers-page/speakers-page.component';
     ItemComponent,
     EventsPageComponent,
     SpeakersPageComponent,
+    ReportsPageComponent,
   ],
   imports: [BrowserModule, HaJsCoreModule.initializeApp(environment.firebase), AppRoutingModule],
   providers: [],

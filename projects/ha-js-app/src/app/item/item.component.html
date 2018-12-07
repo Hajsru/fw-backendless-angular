@@ -1,7 +1,8 @@
 <a [routerLink]="routerLink" class="item__link">
   <div class="item__avatar">
     <span *ngIf="number !== undefined" class="item__number">#{{number}}</span>
-    <img *ngIf="image !== undefined" [src]="image" alt="" class="item__img">
+    <img *ngIf="image !== undefined" [src]="image" [attr.alt]="title"
+         [ngClass]="{'item__img': imageType === 'img', 'item__cover': imageType === 'cover'}">
   </div>
   <div class="item__title">{{title}}</div>
   <p class="item__description">{{description}}</p>

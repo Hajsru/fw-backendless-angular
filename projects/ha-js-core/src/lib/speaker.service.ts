@@ -121,6 +121,11 @@ export class SpeakerService {
           .percentageChanges()
           .pipe(
             filter(percent => percent !== undefined && percent >= 100),
+            switchMap(() => {
+              return fileRef.updateMetatdata({
+                cacheControl: 'public,max-age=31536000',
+              });
+            }),
             switchMap(() => fileRef.getDownloadURL()),
             map(src => {
               return {

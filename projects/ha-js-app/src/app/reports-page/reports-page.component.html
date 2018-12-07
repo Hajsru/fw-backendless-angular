@@ -1,0 +1,14 @@
+<h1 class="section__title">Доклады</h1>
+
+<ul class="section__grid items">
+  <li *ngFor="let report of reports$|async" class="item">
+    <app-item
+      [image]="report.image ? report.image.src : null"
+      [imageType]="'cover'"
+      [title]="report.title"
+      [description]="report.author"
+      [rating]="report.rating"
+    ></app-item>
+  </li>
+</ul>
+
