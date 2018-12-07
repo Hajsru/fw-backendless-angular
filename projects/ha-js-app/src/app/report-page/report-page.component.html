@@ -17,25 +17,25 @@
       </p>
       <button class="item__btn">Комментировать</button>
     </div>
-  </div>
 
-  <div class="item-page__main" *ngIf="report$|async as report">
-    <div class="comments-list">
-      <div class="comment" *ngFor="let comment of report.comments">
-        <div class="comment__author">{{comment.author}}</div>
-        <div class="comment__block" *ngIf="comment.positive">
-          <div class="comment__block-title">Достоинства</div>
-          <div class="comment__text">{{comment.positive}}</div>
-        </div>
+    <div class="item-page__main">
+      <div class="comments-list">
+        <div class="comment" *ngFor="let comment of report.comments">
+          <div class="comment__author">{{comment.authorName}}</div>
+          <div class="comment__block" *ngIf="comment.positive">
+            <div class="comment__block-title">Достоинства</div>
+            <div class="comment__text">{{comment.positive}}</div>
+          </div>
 
-        <div class="comment__block" *ngIf="comment.negative">
-          <div class="comment__block-title">Недостатки</div>
-          <div class="comment__text">{{comment.negative}}</div>
-        </div>
+          <div class="comment__block" *ngIf="comment.negative">
+            <div class="comment__block-title">Недостатки</div>
+            <div class="comment__text">{{comment.negative}}</div>
+          </div>
 
-        <div class="comment__block" *ngIf="comment.comment">
-          <div class="comment__block-title">Комментарий</div>
-          <div class="comment__text">{{comment.comment}}</div>
+          <div class="comment__block" *ngIf="comment.comment">
+            <div class="comment__block-title">Комментарий</div>
+            <div class="comment__text">{{comment.comment}}</div>
+          </div>
         </div>
       </div>
     </div>

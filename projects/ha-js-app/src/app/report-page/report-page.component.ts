@@ -1,7 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { Image, ReportHelperService, ReportService } from '@it-quasar/ha-js-core';
+import { combineLatest, Observable } from 'rxjs';
+import {
+  Image,
+  ReportCommentService,
+  ReportHelperService,
+  ReportService,
+} from '@it-quasar/ha-js-core';
 import { map, switchMap } from 'rxjs/operators';
 
 interface FrontendReport {
@@ -24,6 +29,7 @@ export class ReportPageComponent implements OnInit {
   constructor(
     private router: ActivatedRoute,
     private reportService: ReportService,
+    private reportCommentService: ReportCommentService,
     private reportHelperService: ReportHelperService,
   ) {}
 
@@ -40,15 +46,16 @@ export class ReportPageComponent implements OnInit {
       }),
       switchMap(report => {
         const author$ = this.reportHelperService.getReportAuthorName(report);
+        const comments$ = this.reportCommentService.getComments(report.$id);
 
-        return author$.pipe(
-          map(author => {
+        return combineLatest(author$, comments$).pipe(
+          map(([author, comments]) => {
             return {
               ...report,
               author,
+              comments,
               title: `«${report.title}»`,
               link: [`/report/${report.$id}`],
-              comments: [],
             };
           }),
         );

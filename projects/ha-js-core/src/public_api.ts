@@ -7,6 +7,7 @@ export * from './lib/image';
 export * from './lib/event.service';
 export * from './lib/speaker.service';
 export * from './lib/report.service';
+export * from './lib/report-comment.service';
 
 export * from './lib/report-helper.service';
 
