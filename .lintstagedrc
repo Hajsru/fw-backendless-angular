@@ -1,12 +1,12 @@
 {
   "*.ts": [
-    "tslint --fix",
     "prettier --write",
+    "tslint --fix",
     "git add"
   ],
   "*.scss": [
-    "stylelint --fix",
     "prettier --write",
+    "stylelint --fix",
     "git add"
   ],
   "*.{jpg,jpeg}": [

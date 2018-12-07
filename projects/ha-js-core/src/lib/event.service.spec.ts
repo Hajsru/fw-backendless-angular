@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { EventService } from './event.service';
+import { Events, EventService } from './event.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { of } from 'rxjs';
 
@@ -10,50 +10,86 @@ describe('EventService', () => {
 
   const dbEvents = [
     {
-      number: 1,
-      title: 'Первый митап Ha.js',
-      location: 'Рок-бар "Гараж"',
-      rating: 4,
+      payload: {
+        doc: {
+          id: '1',
+          data() {
+            return {
+              number: 1,
+              title: 'Первый митап Ha.js',
+              location: 'Рок-бар "Гараж"',
+              rating: 4,
+              voteCount: 4,
+            };
+          },
+        },
+      },
     },
     {
-      number: 2,
-      title: 'Ha.js #2',
-      location: 'Рок-бар "Гараж"',
-      rating: 4.8,
+      payload: {
+        doc: {
+          id: '2',
+          data() {
+            return {
+              number: 2,
+              title: 'Ha.js #2',
+              location: 'Рок-бар "Гараж"',
+              rating: 4.8,
+              voteCount: 10,
+            };
+          },
+        },
+      },
     },
     {
-      number: 3,
-      title: 'Ha.js #3',
-      location: 'Бар "Банифаций"',
-      rating: 3,
+      payload: {
+        doc: {
+          id: '3',
+          data() {
+            return {
+              number: 3,
+              title: 'Ha.js #3',
+              location: 'Бар "Банифаций"',
+              rating: 3,
+              voteCount: 12,
+            };
+          },
+        },
+      },
     },
   ];
 
-  const expectedEvents = [
+  const expectedEvents: Events = [
     {
+      $id: '1',
       number: 1,
       title: 'Первый митап Ha.js',
       location: 'Рок-бар "Гараж"',
       rating: 4,
+      voteCount: 4,
     },
     {
+      $id: '2',
       number: 2,
       title: 'Ha.js #2',
       location: 'Рок-бар "Гараж"',
       rating: 5,
+      voteCount: 10,
     },
     {
+      $id: '3',
       number: 3,
       title: 'Ha.js #3',
       location: 'Бар "Банифаций"',
       rating: 3,
+      voteCount: 12,
     },
   ];
 
   const angularFirestoreStub = {
     collection(path: string) {
       return {
-        valueChanges() {
+        snapshotChanges() {
           return of(dbEvents);
         },
       };

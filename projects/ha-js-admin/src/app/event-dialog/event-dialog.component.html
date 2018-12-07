@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>
+  Митап
+</h1>
+
+<form class="event-dialog__form" mat-dialog-content [formGroup]="form">
+  <mat-form-field>
+    <input matInput [formControlName]="'number'" placeholder="Номер" type="number">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [formControlName]="'title'" placeholder="Название">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [formControlName]="'location'" placeholder="Местро проведения">
+  </mat-form-field>
+</form>
+
+<div mat-dialog-actions>
+  <button mat-button color="primary" (click)="change()">{{hasData ? 'ИЗМЕНИТЬ' : 'СОЗДАТЬ'}}</button>
+  <button mat-button (click)="close()">ЗАКРЫТЬ</button>
+</div>

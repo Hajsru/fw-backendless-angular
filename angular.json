@@ -139,6 +139,139 @@
           }
         }
       }
+    },
+    "ha-js-admin": {
+      "root": "projects/ha-js-admin/",
+      "sourceRoot": "projects/ha-js-admin/src",
+      "projectType": "application",
+      "prefix": "admin",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/hosting/admin",
+            "baseHref": "/admin/",
+            "deployUrl": "/admin/",
+            "index": "projects/ha-js-admin/src/index.html",
+            "main": "projects/ha-js-admin/src/main.ts",
+            "polyfills": "projects/ha-js-admin/src/polyfills.ts",
+            "tsConfig": "projects/ha-js-admin/tsconfig.app.json",
+            "assets": [
+              "projects/ha-js-admin/src/favicon.ico",
+              "projects/ha-js-admin/src/assets"
+            ],
+            "styles": [
+              "projects/ha-js-admin/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ha-js-admin/src/environments/environment.ts",
+                  "with": "projects/ha-js-admin/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ha-js-admin:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ha-js-admin:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ha-js-admin:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ha-js-admin/src/test.ts",
+            "polyfills": "projects/ha-js-admin/src/polyfills.ts",
+            "tsConfig": "projects/ha-js-admin/tsconfig.spec.json",
+            "karmaConfig": "projects/ha-js-admin/karma.conf.js",
+            "styles": [
+              "projects/ha-js-admin/src/styles.scss"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/ha-js-admin/src/favicon.ico",
+              "projects/ha-js-admin/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ha-js-admin/tsconfig.app.json",
+              "projects/ha-js-admin/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ha-js-admin-e2e": {
+      "root": "projects/ha-js-admin-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ha-js-admin-e2e/protractor.conf.js",
+            "devServerTarget": "ha-js-admin:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ha-js-admin:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/ha-js-admin-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "ha-js-app"

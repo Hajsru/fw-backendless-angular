@@ -13,6 +13,6 @@ export class EventsPageComponent implements OnInit {
   constructor(private evenService: EventService) {}
 
   ngOnInit() {
-    this.events$ = this.evenService.getEvents();
+    this.data$ = this.evenService.getEvents();
   }
 }

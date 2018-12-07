@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>
+  Доклад
+</h1>
+
+<form class="report-dialog__form" mat-dialog-content [formGroup]="form">
+  <div class="report-dialog__image-row">
+    <div class="report-dialog__column">
+      <mat-form-field>
+        <input matInput [formControlName]="'title'" placeholder="Название">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Автор" [formControlName]="'authorId'">
+          <mat-option *ngFor="let author of allAuthors" [value]="author.id">
+            {{author.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Событие" [formControlName]="'eventId'">
+          <mat-option *ngFor="let event of allEvents" [value]="event.id">
+            {{event.title}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="report-dialog__column">
+      <img *ngIf="image else noImage" class="report-dialog__image" [src]="image.src">
+
+      <ng-template #noImage>
+        <div class="report-dialog__no-image mat-display-1"></div>
+      </ng-template>
+
+      <input type="file" #imageInput hidden (change)="setImage($event)">
+      <button mat-raised-button color="primary" (click)="selectImage()">{{image ? 'ИЗМЕНИТЬ КАРТИНКУ' : 'УСТАНОВИТЬ КАРТИНКУ'}}</button>
+    </div>
+  </div>
+  <!--<mat-form-field>-->
+  <!--<input matInput [formControlName]="'reports'" placeholder="Доклады">-->
+  <!--</mat-form-field>-->
+</form>
+
+<div mat-dialog-actions>
+  <button mat-button color="primary" (click)="change()">{{hasData ? 'ИЗМЕНИТЬ' : 'СОЗДАТЬ'}}</button>
+  <button mat-button (click)="close()">ЗАКРЫТЬ</button>
+</div>
+

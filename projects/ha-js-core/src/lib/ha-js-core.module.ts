@@ -1,10 +1,11 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { AngularFireModule, FirebaseAppConfig, FirebaseOptions } from '@angular/fire';
-import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [],
-  imports: [],
+  imports: [AngularFirestoreModule.enablePersistence(), AngularFireStorageModule],
   exports: [],
 })
 export class HaJsCoreModule {
@@ -14,11 +15,7 @@ export class HaJsCoreModule {
   ): ModuleWithProviders {
     return {
       ngModule: HaJsCoreModule,
-      providers: [
-        AngularFireModule.initializeApp(options, nameOrConfig).providers,
-        AngularFirestoreModule.enablePersistence().providers,
-        AngularFirestore,
-      ],
+      providers: [AngularFireModule.initializeApp(options, nameOrConfig).providers],
     };
   }
 }

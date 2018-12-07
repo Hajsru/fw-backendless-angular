@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>
+  Спикер
+</h1>
+
+<form class="speaker-dialog__form" mat-dialog-content [formGroup]="form">
+  <div class="speaker-dialog__photo-row">
+    <div class="speaker-dialog__column">
+      <mat-form-field>
+        <input matInput [formControlName]="'name'" placeholder="Имя">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [formControlName]="'work'" placeholder="Место работы">
+      </mat-form-field>
+    </div>
+
+    <div class="speaker-dialog__column">
+      <img *ngIf="photo else noPhoto" class="speaker-dialog__photo" [src]="photo.src">
+
+      <ng-template #noPhoto>
+        <div class="speaker-dialog__no-photo mat-display-1"></div>
+      </ng-template>
+
+      <input type="file" #photoInput hidden (change)="setPhoto($event)">
+      <button mat-raised-button color="primary" (click)="selectPhoto()">{{photo ? 'ИЗМЕНИТЬ ФОТО' : 'УСТАНОВИТЬ ФОТО'}}</button>
+    </div>
+  </div>
+  <!--<mat-form-field>-->
+    <!--<input matInput [formControlName]="'reports'" placeholder="Доклады">-->
+  <!--</mat-form-field>-->
+</form>
+
+<div mat-dialog-actions>
+  <button mat-button color="primary" (click)="change()">{{hasData ? 'ИЗМЕНИТЬ' : 'СОЗДАТЬ'}}</button>
+  <button mat-button (click)="close()">ЗАКРЫТЬ</button>
+</div>
+

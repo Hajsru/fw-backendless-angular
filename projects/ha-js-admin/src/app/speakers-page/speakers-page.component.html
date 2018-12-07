@@ -1,0 +1,40 @@
+<table class="speakers-page__table mat-elevation-z1" mat-table [dataSource]="dataSource$">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Имя </th>
+    <td mat-cell *matCellDef="let speaker"> {{speaker.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="work">
+    <th mat-header-cell *matHeaderCellDef> Занятость </th>
+    <td mat-cell *matCellDef="let speaker"> {{speaker.work}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="reportsCount">
+    <th mat-header-cell *matHeaderCellDef> Всего докладов </th>
+    <td mat-cell *matCellDef="let speaker"> {{speaker.reports.length}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="rating">
+    <th mat-header-cell *matHeaderCellDef> Средний рейтинг </th>
+    <td mat-cell *matCellDef="let speaker"> {{speaker.rating}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="voteCount">
+    <th mat-header-cell *matHeaderCellDef> Количество проголосовавших </th>
+    <td mat-cell *matCellDef="let speaker"> {{speaker.voteCount}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let speaker">
+      <button mat-button color="primary" (click)="open(speaker.$id)">ИЗМЕНИТЬ</button>
+      <button mat-button color="warn" (click)="remove(speaker.$id)">УДАЛИТЬ</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let speaker; columns: columnsToDisplay"></tr>
+</table>
+
+<button mat-fab class="speakers-page__add-button" (click)="create()"><mat-icon>add</mat-icon></button>
+

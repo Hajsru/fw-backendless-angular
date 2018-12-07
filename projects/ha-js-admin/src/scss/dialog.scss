@@ -1,0 +1,67 @@
+@mixin dialog($name) {
+  :host {
+    display: block;
+  }
+
+  .#{$name}-dialog {
+    &__form {
+      display: flex;
+      flex-direction: column;
+      width: 500px;
+    }
+
+    &__image-row,
+    &__photo-row {
+      display: flex;
+    }
+
+    &__column {
+      display: flex;
+      flex-direction: column;
+
+      &:nth-of-type(1) {
+        margin-right: 12px;
+        width: 100%;
+      }
+    }
+
+    &__image,
+    &__no-image {
+      height: 160px;
+      margin-bottom: 12px;
+      width: 200px;
+    }
+
+    &__photo,
+    &__no-photo {
+      height: 160px;
+      margin-bottom: 12px;
+      width: 160px;
+    }
+
+    &__image,
+    &__photo {
+      object-fit: contain;
+    }
+
+    &__no-image,
+    &__no-photo {
+      align-items: center;
+      border: 1px dashed #808080;
+      display: flex;
+      justify-content: center;
+    }
+
+    &__no-image {
+      &::before {
+        content: 'КАРТИНКА';
+      }
+    }
+
+    &__no-photo {
+      &::before {
+        content: 'ФОТО';
+      }
+    }
+  }
+}

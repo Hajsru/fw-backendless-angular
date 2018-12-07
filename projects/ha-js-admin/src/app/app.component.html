@@ -1,0 +1,27 @@
+<div class="admin">
+  <mat-toolbar color="primary" class="admin__toolbar mat-elevation-z4">
+    <span>Ha.js Admin</span>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="admin__content">
+    <mat-sidenav [mode]="'side'" [opened]="true">
+      <mat-nav-list class="admin__nav">
+        <a mat-list-item [routerLink]="['/events']">
+          <mat-icon matListIcon>event</mat-icon>
+          <h3 matLine>Митапы</h3>
+        </a>
+        <a mat-list-item [routerLink]="['/speakers']">
+          <mat-icon matListIcon>person</mat-icon>
+          <h3 matLine>Спикеры</h3>
+        </a>
+        <a mat-list-item [routerLink]="['/reports']">
+          <mat-icon matListIcon>record_voice_over</mat-icon>
+          <h3 matLine>Доклады</h3>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

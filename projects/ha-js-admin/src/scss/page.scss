@@ -1,0 +1,18 @@
+@mixin page($name) {
+  :host {
+    display: block;
+    padding: 20px;
+  }
+
+  .#{$name}-page {
+    &__table {
+      width: 100%;
+    }
+
+    &__add-button {
+      bottom: 16px;
+      position: fixed;
+      right: 16px;
+    }
+  }
+}

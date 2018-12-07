@@ -1,0 +1,41 @@
+<table class="reports-page__table mat-elevation-z1" mat-table [dataSource]="dataSource$">
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef> Название </th>
+    <td mat-cell *matCellDef="let report"> {{report.title}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="author">
+    <th mat-header-cell *matHeaderCellDef> Автор </th>
+    <td mat-cell *matCellDef="let report"> {{report.author}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="event">
+    <th mat-header-cell *matHeaderCellDef> Митап </th>
+    <td mat-cell *matCellDef="let report"> {{report.event}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="rating">
+    <th mat-header-cell *matHeaderCellDef> Средний рейтинг </th>
+    <td mat-cell *matCellDef="let report"> {{report.rating}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="voteCount">
+    <th mat-header-cell *matHeaderCellDef> Количество проголосовавших </th>
+    <td mat-cell *matCellDef="let report"> {{report.voteCount}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let report">
+      <button mat-button color="primary" (click)="open(report.$id)">ИЗМЕНИТЬ</button>
+      <button mat-button color="warn" (click)="remove(report.$id)">УДАЛИТЬ</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+  <tr mat-row *matRowDef="let report; columns: columnsToDisplay"></tr>
+</table>
+
+<button mat-fab class="reports-page__add-button" (click)="create()"><mat-icon>add</mat-icon></button>
+
+
