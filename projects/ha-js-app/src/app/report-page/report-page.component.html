@@ -1,0 +1,44 @@
+<section class="page">
+  <div class="item-page" *ngIf="report$|async as report">
+    <div class="item-page__aside">
+      <div class="item__avatar">
+        <img [src]="report.image?.src" [attr.alt]="report.title" class="item__cover">
+      </div>
+      <app-rating [rating]="report.rating"></app-rating>
+      <h1 class="item__title">{{report.title}}</h1>
+      <h2 class="item__description">{{report.author}}</h2>
+
+      <p>
+        <a href="" class="item__data-link">Презентация</a>
+      </p>
+
+      <p *ngIf="report.video">
+        <a [href]="report.video" target="_blank" class="item__data-link">Видео</a>
+      </p>
+      <button class="item__btn">Комментировать</button>
+    </div>
+  </div>
+
+  <div class="item-page__main" *ngIf="report$|async as report">
+    <div class="comments-list">
+      <div class="comment" *ngFor="let comment of report.comments">
+        <div class="comment__author">{{comment.author}}</div>
+        <div class="comment__block" *ngIf="comment.positive">
+          <div class="comment__block-title">Достоинства</div>
+          <div class="comment__text">{{comment.positive}}</div>
+        </div>
+
+        <div class="comment__block" *ngIf="comment.negative">
+          <div class="comment__block-title">Недостатки</div>
+          <div class="comment__text">{{comment.negative}}</div>
+        </div>
+
+        <div class="comment__block" *ngIf="comment.comment">
+          <div class="comment__block-title">Комментарий</div>
+          <div class="comment__text">{{comment.comment}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

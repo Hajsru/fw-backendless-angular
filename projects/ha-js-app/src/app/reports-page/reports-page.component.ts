@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Image, ReportService, SpeakerService } from '@it-quasar/ha-js-core';
-import { combineLatest, Observable, of } from 'rxjs';
+import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Image, ReportService, ReportHelperService } from '@it-quasar/ha-js-core';
+import { combineLatest, Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
 interface FrontendReport {
@@ -8,38 +8,37 @@ interface FrontendReport {
   title: string;
   author: string;
   rating: number;
+  link: string[];
 }
 
 @Component({
   selector: 'app-reports-page',
   templateUrl: './reports-page.component.html',
-  styleUrls: ['./reports-page.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class ReportsPageComponent implements OnInit {
   reports$!: Observable<FrontendReport[]>;
 
-  constructor(private reportService: ReportService, private speakerService: SpeakerService) {}
+  constructor(
+    private reportService: ReportService,
+    private reportHelperService: ReportHelperService,
+  ) {}
 
   ngOnInit() {
     this.reports$ = this.reportService.getReports().pipe(
       map(reports => {
         return reports.map(report => {
-          const authorId = report.author ? report.author.id : null;
-          const author$ = !authorId
-            ? of('')
-            : this.speakerService.getSpeaker(authorId).pipe(
-                map(speaker => {
-                  if (!speaker) {
-                    throw new Error(`Nof found speaker with id=${authorId}`);
-                  }
-
-                  return speaker.name;
-                }),
-              );
+          const author$ = this.reportHelperService.getReportAuthorName(report);
 
           return author$.pipe(
             map(author => {
-              return { ...report, author, title: `«${report.title}»` };
+              return {
+                ...report,
+                author,
+                title: `«${report.title}»`,
+                link: [`/report/${report.$id}`],
+              };
             }),
           );
         });

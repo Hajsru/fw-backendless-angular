@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 
 enum ImageType {
   Img = 'img',
@@ -8,8 +14,8 @@ enum ImageType {
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None,
 })
 export class ItemComponent implements OnInit {
   @Input() routerLink!: string;

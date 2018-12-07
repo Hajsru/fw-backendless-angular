@@ -15,6 +15,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export interface ReportDialogInputData {
   report?: {
     title: string;
+    video: string;
     image: Image | null;
     authorId: string | null;
     eventId: string | null;
@@ -33,6 +34,7 @@ export interface ReportDialogInputData {
 
 export interface ReportDialogOutputData {
   title: string;
+  video: string;
   newImage?: File;
   authorId: string | null;
   eventId: string | null;
@@ -49,6 +51,7 @@ export class ReportDialogComponent implements OnInit {
 
   form = this.fb.group({
     title: this.fb.control(''),
+    video: this.fb.control(''),
     authorId: this.fb.control(null),
     eventId: this.fb.control(null),
   });
@@ -74,7 +77,8 @@ export class ReportDialogComponent implements OnInit {
   ) {
     if (data.report) {
       this.form.setValue({
-        title: data.report.title,
+        title: data.report.title || '',
+        video: data.report.video || '',
         authorId: data.report.authorId || null,
         eventId: data.report.eventId || null,
       });

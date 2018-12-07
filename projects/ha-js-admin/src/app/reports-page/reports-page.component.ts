@@ -111,6 +111,7 @@ export class ReportsPageComponent implements OnInit {
 
           const report = {
             title: dialogOutput.title,
+            video: dialogOutput.video,
             author: dialogOutput.authorId
               ? this.speakerService.getSpeakerRef(dialogOutput.authorId)
               : null,
@@ -166,6 +167,7 @@ export class ReportsPageComponent implements OnInit {
           // Создадим
           const report: ReportData = {
             title: dialogOutput.title,
+            video: dialogOutput.video,
             event: dialogOutput.eventId
               ? this.eventService.getEventRef(dialogOutput.eventId)
               : null,

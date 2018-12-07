@@ -13,6 +13,7 @@ export interface ReportData {
   readonly author: DocumentReference | null;
   readonly event: DocumentReference | null;
   readonly image: Image | null;
+  readonly video: string;
 }
 
 export interface Report extends ReportData {

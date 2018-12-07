@@ -10,6 +10,8 @@ import { EventsPageComponent } from './events-page/events-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SpeakersPageComponent } from './speakers-page/speakers-page.component';
 import { ReportsPageComponent } from './reports-page/reports-page.component';
+import { RatingComponent } from './rating/rating.component';
+import { ReportPageComponent } from './report-page/report-page.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { ReportsPageComponent } from './reports-page/reports-page.component';
     EventsPageComponent,
     SpeakersPageComponent,
     ReportsPageComponent,
+    RatingComponent,
+    ReportPageComponent,
   ],
   imports: [BrowserModule, HaJsCoreModule.initializeApp(environment.firebase), AppRoutingModule],
   providers: [],
