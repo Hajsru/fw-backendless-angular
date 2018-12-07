@@ -219,10 +219,28 @@
   dependencies:
     tslib "^1.9.0"
 
+"@angular/pwa@^0.11.2":
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/@angular/pwa/-/pwa-0.11.2.tgz#b8a76a1fb76f9fff2cd5a490a16adf408201d21c"
+  integrity sha512-D+/Qzb8gHTwPapsvorPybE6fQMZmodcs7pTA3cidFz08IBNjZ3wNXnWo4uaFaoFwiHGIDpGDR/dTALEhxtrE4A==
+  dependencies:
+    "@angular-devkit/core" "7.1.2"
+    "@angular-devkit/schematics" "7.1.2"
+    "@schematics/angular" "7.1.2"
+    parse5-html-rewriting-stream "5.1.0"
+    rxjs "6.3.3"
+
 "@angular/router@~7.1.0":
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/@angular/router/-/router-7.1.2.tgz#3a322f6ee912d309e5f65eb10c7db6cf376d82c8"
   integrity sha512-Lht4hcbx2hAtUEcJ1YG4Q63bukKrDHxqSnELMYi1/G5y5vH8LWPQX7aoEcOJeaQWQTKroQBAIeprol/h9vkvoQ==
+  dependencies:
+    tslib "^1.9.0"
+
+"@angular/service-worker@~7.1.0":
+  version "7.1.2"
+  resolved "https://registry.yarnpkg.com/@angular/service-worker/-/service-worker-7.1.2.tgz#22ac81163c338844e371df89d3b5c84d60bffc1c"
+  integrity sha512-+VIfHDcXMYosPBAoIq3a5vdtt1OQylsxYdhEIhQusOFUQ/0K9qmjwdK1frJ30nCVprmZ4WlLVs8zoeSvpUWJPA==
   dependencies:
     tslib "^1.9.0"
 
@@ -343,7 +361,7 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@firebase/app-types@0.3.2":
+"@firebase/app-types@0.3.2", "@firebase/app-types@^0.3.2":
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/@firebase/app-types/-/app-types-0.3.2.tgz#a92dc544290e2893bd8c02a81e684dae3d8e7c85"
   integrity sha512-ZD8lTgW07NGgo75bTyBJA8Lt9+NweNzot7lrsBtIvfciwUzaFJLsv2EShqjBeuhF7RpG6YFucJ6m67w5buCtzw==
@@ -484,6 +502,11 @@
     log-symbols "^1.0.2"
     log-update "^2.3.0"
     strip-ansi "^3.0.1"
+
+"@it-quasar/ha-js-core@file:./dist/ha-js-core":
+  version "0.0.1"
+  dependencies:
+    tslib "^1.9.0"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -7320,12 +7343,27 @@ parse-passwd@^1.0.0:
   resolved "https://registry.yarnpkg.com/parse-passwd/-/parse-passwd-1.0.0.tgz#6d5b934a456993b23d37f40a382d6f1666a8e5c6"
   integrity sha1-bVuTSkVpk7I9N/QKOC1vFmao5cY=
 
+parse5-html-rewriting-stream@5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/parse5-html-rewriting-stream/-/parse5-html-rewriting-stream-5.1.0.tgz#63f92c958764aea8cbe3aa68f2e5895c32068ab8"
+  integrity sha512-hZlaOTHJs4dpC5yFHnOSEMh26ErsqTsLzxKqkuRcUqtiu0kMsBQ9pkgANkECDyoBUhJ3+hvb2DPLsyqbtcS61Q==
+  dependencies:
+    parse5 "^5.1.0"
+    parse5-sax-parser "^5.1.0"
+
+parse5-sax-parser@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/parse5-sax-parser/-/parse5-sax-parser-5.1.0.tgz#ec234d23223a8054a74ff173aa3dc2da74c5bbd9"
+  integrity sha512-VEhdEDhBkoSILPmsZ96SoIIUow3hZbtgQsqXw7r8DxxnqsCIO0fwkT9mWgBcf9SPjVUh92liuEprHrrYzXBPWQ==
+  dependencies:
+    parse5 "^5.1.0"
+
 parse5@4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-4.0.0.tgz#6d78656e3da8d78b4ec0b906f7c08ef1dfe3f608"
   integrity sha512-VrZ7eOd3T1Fk4XWNXMgiGBK/z0MG48BWG2uQNU4I72fkQuKUTZpl+u9k+CxEG0twMVzSmXEEz12z5Fnw1jIQFA==
 
-parse5@^5.0.0:
+parse5@^5.0.0, parse5@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/parse5/-/parse5-5.1.0.tgz#c59341c9723f414c452975564c7c00a68d58acd2"
   integrity sha512-fxNG2sQjHvlVAYmzBZS9YlDp6PTSSDwa98vkD4QgVDDCAo84z5X1t5XyJQ62ImdLXx5NdIIfihey6xpum9/gRQ==

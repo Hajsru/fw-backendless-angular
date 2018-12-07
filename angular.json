@@ -35,19 +35,25 @@
       "sourceRoot": "projects/ha-js-app/src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ha-js-app",
+            "outputPath": "dist/hosting/app",
+            "baseHref": "/",
             "index": "projects/ha-js-app/src/index.html",
             "main": "projects/ha-js-app/src/main.ts",
             "polyfills": "projects/ha-js-app/src/polyfills.ts",
             "tsConfig": "projects/ha-js-app/tsconfig.app.json",
             "assets": [
               "projects/ha-js-app/src/favicon.ico",
-              "projects/ha-js-app/src/assets"
+              "projects/ha-js-app/src/assets",
+              "projects/ha-js-app/src/manifest.json"
             ],
             "styles": [
               "projects/ha-js-app/src/styles.css"
@@ -77,7 +83,8 @@
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
                 }
-              ]
+              ],
+              "serviceWorker": true
             }
           }
         },

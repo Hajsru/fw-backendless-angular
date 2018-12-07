@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Speakers, SpeakerService } from '@it-quasar/ha-js-core';
+import { Speakers, SpeakerService, SpeakerData } from '@it-quasar/ha-js-core';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { map, mapTo, startWith, switchMap, take } from 'rxjs/operators';
 import {
@@ -8,7 +8,6 @@ import {
   SpeakerDialogInputData,
   SpeakerDialogOutputData,
 } from '../speaker-dialog/speaker-dialog.component';
-import { SpeakerData } from '@it-quasar/ha-js-core/src/lib/speaker.service';
 
 @Component({
   selector: 'admin-speakers-page',

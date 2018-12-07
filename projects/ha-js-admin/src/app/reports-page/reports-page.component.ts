@@ -6,6 +6,7 @@ import {
   Reports,
   ReportService,
   SpeakerService,
+  ReportData,
 } from '@it-quasar/ha-js-core';
 import { MatDialog, MatSnackBar } from '@angular/material';
 import { map, mapTo, startWith, switchMap, take } from 'rxjs/operators';
@@ -14,7 +15,6 @@ import {
   ReportDialogInputData,
   ReportDialogOutputData,
 } from '../report-dialog/report-dialog.component';
-import { ReportData } from '@it-quasar/ha-js-core/src/lib/report.service';
 
 interface Row {
   title: string;

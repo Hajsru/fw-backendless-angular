@@ -18,11 +18,6 @@
     "lib": [
       "es2018",
       "dom"
-    ],
-    "paths": {
-      "@it-quasar/ha-js-core": [
-        "dist/ha-js-core"
-      ]
-    }
+    ]
   }
 }
