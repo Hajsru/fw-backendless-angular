@@ -1,0 +1,14 @@
+<h1 class="section__title">Спикеры</h1>
+
+<ul class="section__grid items">
+  <li *ngFor="let speaker of speakers$|async" class="item">
+    <app-item
+      [image]="speaker.photo ? speaker.photo.src : null"
+      [title]="speaker.name"
+      [description]="speaker.work"
+      [rating]="speaker.rating"
+    ></app-item>
+  </li>
+</ul>
+
+

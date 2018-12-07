@@ -1,7 +1,7 @@
 <a [routerLink]="routerLink" class="item__link">
   <div class="item__avatar">
-    <span *ngIf="number" class="item__number">#{{number}}</span>
-    <img *ngIf="image" [src]="image" alt="" class="item__img">
+    <span *ngIf="number !== undefined" class="item__number">#{{number}}</span>
+    <img *ngIf="image !== undefined" [src]="image" alt="" class="item__img">
   </div>
   <div class="item__title">{{title}}</div>
   <p class="item__description">{{description}}</p>

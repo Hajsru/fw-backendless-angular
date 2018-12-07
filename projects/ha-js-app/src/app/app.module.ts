@@ -8,9 +8,16 @@ import { AsideComponent } from './aside/aside.component';
 import { ItemComponent } from './item/item.component';
 import { EventsPageComponent } from './events-page/events-page.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SpeakersPageComponent } from './speakers-page/speakers-page.component';
 
 @NgModule({
-  declarations: [AppComponent, AsideComponent, ItemComponent, EventsPageComponent],
+  declarations: [
+    AppComponent,
+    AsideComponent,
+    ItemComponent,
+    EventsPageComponent,
+    SpeakersPageComponent,
+  ],
   imports: [BrowserModule, HaJsCoreModule.initializeApp(environment.firebase), AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
